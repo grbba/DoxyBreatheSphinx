@@ -43,7 +43,8 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx_sitemap',
     'sphinx.ext.inheritance_diagram',
-    'breathe'
+    'breathe',
+    'recommonmark'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -94,3 +95,11 @@ breathe_projects = {
 }
 breathe_default_project = "C++ Sphinx Doxygen Breathe"
 breathe_default_members = ('members', 'undoc-members')
+
+from recommonmark.parser import CommonMarkParser
+
+source_parsers = {
+    '.md': CommonMarkParser,
+}
+
+source_suffix = ['.rst', '.md']

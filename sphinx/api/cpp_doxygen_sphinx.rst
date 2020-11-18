@@ -3,5 +3,5 @@
 Foo
 ===
 
-.. doxygenfile:: cpp_doxygen_sphinx.hpp
+.. doxygenfile:: cpp_doxygen_sphinx.hpp ../src/*.h
    :project: C++ Sphinx Doxygen Breathe

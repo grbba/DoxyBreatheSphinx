@@ -25,4 +25,6 @@ Table of Contents
 
    self
    api/index
+   api/*.md
+   ../src/*
    
