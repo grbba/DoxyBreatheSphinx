@@ -1,0 +1,25 @@
+.. _exhale_class_class_network_setup:
+
+Class NetworkSetup
+==================
+
+- Defined in :ref:`file_src_NetworkSetup.h`
+
+
+Inheritance Relationships
+-------------------------
+
+Derived Type
+************
+
+- ``public EthernetSetup`` (:ref:`exhale_class_class_ethernet_setup`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: NetworkSetup
+   :members:
+   :protected-members:
+   :undoc-members:
