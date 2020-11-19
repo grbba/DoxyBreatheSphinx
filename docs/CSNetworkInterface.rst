@@ -1,24 +1,29 @@
 The CommandStation EX NetworkInterface
 ======================================
 
-### Summary
+Summary
+-------
 
 The CommandStation-EX NetworkInterface provides Ethernet and/or WiFi capabilities to CommandStation-EX. It supports TCP as well as UDP for sending data containing CommandStationEX recognized protocols i.e. JMRI or WiThrottle. Those commands can be transfered either as raw text or over HTTP.
 
 For more information about CommandStation-EX can be found on [github](https://github.com/DCC-EX/CommandStation-EX) or on the [dcc-ex](https://dcc-ex.com/) website
 
-### Features
+Features
+--------
 
-#### Networking
+Networking
+^^^^^^^^^^
 
 * **Network types supported** : Ethernet and WiFi
 * **Network protocol support** : TCP and UDP
 * **Application Transport protcols** : Raw text and HTTP; HTTPS for the ESP only and MQTT are to be done;
 * **Application Payload - CommandStation EX protocols**: JMRI format as well as WitHrottle
 
-#### WiFi
+WiFi
+^^^^
 
-#### Ethernet
+Ethernet
+^^^^^^^^
 
 * Automatic detection of the EthernetShield capabilities and number of possible concurrent connections for TCP
 * UDP will have only one connection available as its a non-connected stateless protocol and all clients will use the same connection
@@ -28,9 +33,11 @@ The interface also supports multiple connections on different ports for TCP and 
 You can also mix Ethernet and Wifi ( my setup has actually both connected currently )
 WiThrottle over UDP should also support multiple clients as i know the remote IP and ports to reply to to the contrary of TCP as a connected protocol but that i can't test yet
 
-#### Diagnostics
+Diagnostics
+^^^^^^^^^^^
 
-#### Dependencies
+Dependencies
+^^^^^^^^^^^^
 
 * WiFi
 
@@ -44,8 +51,8 @@ find and download if required the library for you.
 
 Instructions for flashing your ESP can be found here: to be done
 
-
-#### CommandStation EX Integration
+CommandStation EX Integration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 There are some code changes in the CommandStation EX code required which may be integrated into master eventually;
 
@@ -79,7 +86,7 @@ Once NetworkInterface is part of the CommandStation EX master this step has been
 
 ### Example .ino file for setting up the NetworkInterface
 
-``` code-block:: cpp
+.. code-block:: cpp
 
   #include <Arduino.h>
   #include "DIAG.h"
@@ -140,5 +147,3 @@ Once NetworkInterface is part of the CommandStation EX master this step has been
   // (3) End Loop NetworkInterface
   
   }
-
-```

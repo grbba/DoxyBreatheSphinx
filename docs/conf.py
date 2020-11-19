@@ -14,17 +14,15 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
-from sphinx.builders.html import StandaloneHTMLBuilder
-import subprocess, os
-
-# Doxygen
-subprocess.call('doxygen Doxyfile.in', shell=True)
 
 # -- Project information -----------------------------------------------------
 
-project = 'C++ Sphnix Doxygen Breathe'
+project = 'CommandStation EX NetworkInterface'
 copyright = '2020, grbba'
 author = 'grbba'
+
+# The full version, including alpha/beta/rc tags
+release = '0.0.1'
 
 
 # -- General configuration ---------------------------------------------------
@@ -44,7 +42,7 @@ extensions = [
     'sphinx_sitemap',
     'sphinx.ext.inheritance_diagram',
     'breathe',
-    'recommonmark'
+    'exhale'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -55,7 +53,6 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
-highlight_language = 'c++'
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -63,38 +60,44 @@ highlight_language = 'c++'
 # a list of builtin themes.
 #
 html_theme = 'sphinx_rtd_theme'
-html_theme_options = {
-    'canonical_url': '',
-    'analytics_id': '',
-    'display_version': True,
-    'prev_next_buttons_location': 'bottom',
-    'style_external_links': False,
-    'logo_only': False,
-
-    # Toc options
-    'collapse_navigation': True,
-    'sticky_navigation': True,
-    'navigation_depth': 4,
-    'includehidden': True,
-    'titles_only': False
-}
-
-# html_logo = ''
-# github_url = ''
-# html_baseurl = ''
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+
 # -- Breathe configuration -------------------------------------------------
 
 breathe_projects = {
-	"C++ Sphinx Doxygen Breathe": "_build/xml/"
+	"CommandStation EX NetworkInterface": "./doxyoutput/xml"
 }
-breathe_default_project = "C++ Sphinx Doxygen Breathe"
-breathe_default_members = ('members', 'undoc-members')
+breathe_default_project = "CommandStation EX NetworkInterface"
+
+# -- Exhale configuration -------------------------------------------------
+
+exhale_args = {
+    # These arguments are required
+    "containmentFolder":     "./api",
+    "rootFileName":          "library_root.rst",
+    "rootFileTitle":         "NetworkInterface API",
+    "doxygenStripFromPath":  "..",
+    # Suggested optional arguments
+    "createTreeView":        True,
+    # TIP: if using the sphinx-bootstrap-theme, you need
+    # "treeViewIsBootstrap": True,
+    "exhaleExecutesDoxygen": True,
+    "exhaleDoxygenStdin":    "INPUT = ../src"
+}
+
+# Tell sphinx what the primary language being documented is.
+primary_domain = 'cpp'
+
+# Tell sphinx what the pygments highlight language should be.
+highlight_language = 'cpp'
+
+
+# -- Markdown configuration -------------------------------------------------
 
 from recommonmark.parser import CommonMarkParser
 

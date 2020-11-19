@@ -23,6 +23,11 @@
 #include "NetworkSetup.h"
 #include "EthernetSetup.h"
 
+/**
+ * @brief Configure the Ethernet Connection
+ * 
+ * @return byte true if ok false if falied
+ */
 byte EthernetSetup::setup() 
 {
     INFO(F("Initialize MAC Address ..."));
