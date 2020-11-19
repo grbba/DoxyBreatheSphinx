@@ -12,7 +12,7 @@ Summary
 
 The CommandStation-EX NetworkInterface provides Ethernet and/or WiFi capabilities to CommandStation-EX. It supports TCP as well as UDP for sending data containing CommandStationEX recognized protocols i.e. JMRI or WiThrottle. Those commands can be transfered either as raw text or over HTTP.
 
-For more information about CommandStation-EX can be found on [github](https://github.com/DCC-EX/CommandStation-EX) or on the [dcc-ex](https://dcc-ex.com/) website
+For more information about CommandStation-EX can be found on `GitHub <https://github.com/DCC-EX/CommandStation-EX>`_ or on the `DCC-EX <https:////dcc-ex.com>`_  website
 
 Features
 --------
@@ -47,13 +47,15 @@ Dependencies
 
 * WiFi
 
-The WiFi connection makes use of the WiFiEspAT library from Juraj Andrássy which can be found here: [github](https://github.com/jandrassy/WiFiEspAT). This library
-requires that the ESP, providing the WiFi hardware, supports an AT commandset version 1.7 or 2.1 as of today. All different ESP modules should be supported.
+The WiFi connection makes use of the WiFiEspAT library from Juraj Andrássy which can be found here on `GitHub <https://github.com/jandrassy/WiFiEspAT>`_ .  
+
+.. note:: This library requires that the ESP, providing the WiFi hardware, supports an AT commandset version 1.7 or 2.1 as of today. All different ESP modules should be supported.
+
 Unfortunatley most ESP modules shipped today come with an older AT commandset installed by default. Therfore flashing your ESP may be required. Plans exist to build
 our own ESP WiFi AT library also supporting older AT commandsets.
 This library is available from the PIO library manager as well as from the Arduino IDE library manager. Please refer to the platformio.ini file on how to use the library. 
 Using VSC together with PIO, instead of looking for the libary in PIO library manager, can just add the relevant file in your platformio.ini file and the compiler will 
-find and download if required the library for you.
+find and download, if required, the library for you.
 
 Instructions for flashing your ESP can be found here: to be done
 
@@ -65,24 +67,27 @@ There are some code changes in the CommandStation EX code required which may be 
 * Include files
 * RingBuffer
 
-#### Throttles
+Throttles
+^^^^^^^^^
 
-#### Telnet
+Telnet
+^^^^^^
 
-### Setup
+Setup
+-----
 
 In NetworkConfig.h : uncomment #define DCC_ENABLED; If that is commented out the NetworkInterface runs standalone
 Once NetworkInterface is part of the CommandStation EX master this step has been done already
 
-### Attention Points
 
-* Memory Consumption: Every network interface instatiated will consume valuable memory/processing time needed also by other parts of the CommandStation. It is recommended to instantiate at most 2. If you don't have enough memory for Accessiries, Sensors, Turnouts etc. please look if one network interface would be sufficient.
-* For WiFi you need to reserve Serial 1 fo the connection to the ESP due to a limitation from the WiFiATEsp library. Otehrwise you could use SoftwareSerial (less recommended/feature has to be added)
-* UNO is not supported due to ressource limitation. An Arduino Mega is required.
-* Individual commands send shall not be longer than half of the MAX_ETH_BUFFER size in order to make sure that no command which spans two recieved packets is lost. The default settings should be sufficient for most use cases.
+.. attention:: * Memory Consumption: Every network interface instatiated will consume valuable memory/processing time needed also by other parts of the CommandStation. It is recommended to instantiate at most 2. If you don't have enough memory for Accessiries, Sensors, Turnouts etc. please look if one network interface would be sufficient.
+.. attention:: * For WiFi you need to reserve Serial 1 fo the connection to the ESP due to a limitation from the WiFiATEsp library. Otehrwise you could use SoftwareSerial (less recommended/feature has to be added)
+.. attention:: * UNO is not supported due to ressource limitation. An Arduino Mega is required.
+.. attention:: * Individual commands send shall not be longer than half of the MAX_ETH_BUFFER size in order to make sure that no command which spans two recieved packets is lost. The default settings should be sufficient for most use cases.
 
 
-### Roadmap
+Roadmap
+-------
 
 * Allow user defined application payload protocols
 * Integrate MQTT as an application transport protocol
@@ -90,7 +95,8 @@ Once NetworkInterface is part of the CommandStation EX master this step has been
 * AP Access mode for WiFi
 * Reset persistent WiFi credentials
 
-### Example .ino file for setting up the NetworkInterface
+Example .ino file for setting up the NetworkInterface
+-----------------------------------------------------
 
 .. code-block:: cpp
 
