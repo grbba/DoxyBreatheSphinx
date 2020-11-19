@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to the CommandStation EX NetworkInterface documentation! &mdash; CommandStation EX NetworkInterface 0.0.1 documentation</title>
+  <title>How to flash your ESP for the right AT commandset &mdash; CommandStation EX NetworkInterface 0.0.1 documentation</title>
   
 
   
@@ -40,7 +40,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="The CommandStation EX NetworkInterface" href="CSNetworkInterface.html" /> 
+    <link rel="next" title="NetworkInterface API" href="api/library_root.html" />
+    <link rel="prev" title="The CommandStation EX NetworkInterface" href="CSNetworkInterface.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -54,7 +55,7 @@
           
 
           
-            <a href="#" class="icon icon-home" alt="Documentation Home"> CommandStation EX NetworkInterface
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> CommandStation EX NetworkInterface
           
 
           
@@ -86,9 +87,9 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="CSNetworkInterface.html">The CommandStation EX NetworkInterface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="FlashESP.html">How to flash your ESP for the right AT commandset</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to flash your ESP for the right AT commandset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/library_root.html">NetworkInterface API</a></li>
 </ul>
 
@@ -105,7 +106,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">CommandStation EX NetworkInterface</a>
+          <a href="index.html">CommandStation EX NetworkInterface</a>
         
       </nav>
 
@@ -134,15 +135,15 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Welcome to the CommandStation EX NetworkInterface documentation!</li>
+      <li>How to flash your ESP for the right AT commandset</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/FlashESP.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -155,36 +156,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="welcome-to-the-commandstation-ex-networkinterface-documentation">
-<h1>Welcome to the CommandStation EX NetworkInterface documentation!<a class="headerlink" href="#welcome-to-the-commandstation-ex-networkinterface-documentation" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="CSNetworkInterface.html">The CommandStation EX NetworkInterface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="CSNetworkInterface.html#summary">Summary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CSNetworkInterface.html#features">Features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CSNetworkInterface.html#setup">Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CSNetworkInterface.html#roadmap">Roadmap</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CSNetworkInterface.html#example-ino-file-for-setting-up-the-networkinterface">Example .ino file for setting up the NetworkInterface</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="FlashESP.html">How to flash your ESP for the right AT commandset</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api/library_root.html">NetworkInterface API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/library_root.html#class-hierarchy">Class Hierarchy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/library_root.html#file-hierarchy">File Hierarchy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/library_root.html#full-api">Full API</a></li>
-</ul>
-</li>
-</ul>
+  <div class="section" id="how-to-flash-your-esp-for-the-right-at-commandset">
+<h1>How to flash your ESP for the right AT commandset<a class="headerlink" href="#how-to-flash-your-esp-for-the-right-at-commandset" title="Permalink to this headline">¶</a></h1>
+<p>Download the AT commandset from here <a class="reference external" href="https://www.espressif.com/en/support/download/at">Expressif</a> . Download <cite>ESP8266 NonOS AT Bin V1.7.4</cite> you can use also the 2.1 version for your board.
+The github page from the WiFiEspAT library has also usefull information. Use the following command to flash the ESP. We assume that you know how to put your ESP into flash mode though.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>esptool.py write_flash --flash_size 2MB-c1 0x0 boot_v1.7.bin 0x01000 at/1024+1024/user1.2048.new.5.bin 0x1fb000 blank.bin 0x1fc000 esp_init_data_default_v08.bin 0xfe000 blank.bin 0x1fe000 blank.bin
+</pre></div>
 </div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
-</ul>
+<p>Here we use the esptool.py program for flashing but it should work with the flash tool of your choice if you respect the flash map. More information on esptool.py can be found <a class="reference external" href="https://github.com/espressif/esptool">here</a></p>
 </div>
 
 
@@ -195,8 +174,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="CSNetworkInterface.html" class="btn btn-neutral float-right" title="The CommandStation EX NetworkInterface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="api/library_root.html" class="btn btn-neutral float-right" title="NetworkInterface API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+      
+        <a href="CSNetworkInterface.html" class="btn btn-neutral float-left" title="The CommandStation EX NetworkInterface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

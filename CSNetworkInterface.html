@@ -40,7 +40,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="NetworkInterface API" href="api/library_root.html" />
+    <link rel="next" title="How to flash your ESP for the right AT commandset" href="FlashESP.html" />
     <link rel="prev" title="Welcome to the CommandStation EX NetworkInterface documentation!" href="index.html" /> 
 </head>
 
@@ -106,6 +106,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#example-ino-file-for-setting-up-the-networkinterface">Example .ino file for setting up the NetworkInterface</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="FlashESP.html">How to flash your ESP for the right AT commandset</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api/library_root.html">NetworkInterface API</a></li>
 </ul>
 
@@ -202,10 +203,10 @@
 <ul class="simple">
 <li><p>Automatic detection of the EthernetShield capabilities and number of possible concurrent connections for TCP</p></li>
 <li><p>UDP will have only one connection available as its a non-connected stateless protocol and all clients will use the same connection</p></li>
-<li><p>Etheret and WiFi can be mixed if a EtherNet Shield and ESP are both connected to the MCU</p></li>
+<li><p>Ethernet and WiFi can be mixed if a EtherNet Shield and ESP are both connected to the MCU</p></li>
 </ul>
 <p>The interface also supports multiple connections on different ports for TCP and UDP.
-You can also mix Ethernet and Wifi ( my setup has actually both connected currently )
+You can also mix Ethernet and WiFi ( my setup has actually both connected currently )
 WiThrottle over UDP should also support multiple clients as i know the remote IP and ports to reply to to the contrary of TCP as a connected protocol but that i can’t test yet</p>
 </div>
 <div class="section" id="diagnostics">
@@ -219,14 +220,14 @@ WiThrottle over UDP should also support multiple clients as i know the remote IP
 <p>The WiFi connection makes use of the WiFiEspAT library from Juraj Andrássy which can be found here on <a class="reference external" href="https://github.com/jandrassy/WiFiEspAT">GitHub</a> .</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This library requires that the ESP, providing the WiFi hardware, supports an AT commandset version 1.7 or 2.1 as of today. All different ESP modules should be supported.</p>
+<p>This library requires that the ESP, providing the WiFi hardware, supports the AT command set version 1.7 or 2.1 as of today. All different ESP modules should be supported.</p>
 </div>
-<p>Unfortunatley most ESP modules shipped today come with an older AT commandset installed by default. Therfore flashing your ESP may be required. Plans exist to build
-our own ESP WiFi AT library also supporting older AT commandsets.
+<p>Unfortunately most ESP modules shipped today come with an older AT command set installed by default. Therefore flashing your ESP may be required. Plans exist to build
+our own ESP WiFi AT library also supporting older AT command sets.
 This library is available from the PIO library manager as well as from the Arduino IDE library manager. Please refer to the platformio.ini file on how to use the library.
-Using VSC together with PIO, instead of looking for the libary in PIO library manager, can just add the relevant file in your platformio.ini file and the compiler will
+Using VSC together with PIO, instead of looking for the library in PIO library manager, can just add the relevant file in your platformio.ini file and the compiler will
 find and download, if required, the library for you.</p>
-<p>Instructions for flashing your ESP can be found here: to be done</p>
+<p>Instructions for flashing your ESP can be found <a class="reference external" href="FlashESP.html">here</a></p>
 </div>
 <div class="section" id="commandstation-ex-integration">
 <h3>CommandStation EX Integration<a class="headerlink" href="#commandstation-ex-integration" title="Permalink to this headline">¶</a></h3>
@@ -250,13 +251,13 @@ Once NetworkInterface is part of the CommandStation EX master this step has been
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <ul class="simple">
-<li><p>Memory Consumption: Every network interface instatiated will consume valuable memory/processing time needed also by other parts of the CommandStation. It is recommended to instantiate at most 2. If you don’t have enough memory for Accessiries, Sensors, Turnouts etc. please look if one network interface would be sufficient.</p></li>
+<li><p>Memory Consumption: Every network interface instantiated will consume valuable memory/processing time needed also by other parts of the CommandStation. It is recommended to instantiate at most 2. If you don’t have enough memory for Accessories, Sensors, Turnouts etc. please look if one network interface would be sufficient.</p></li>
 </ul>
 </div>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <ul class="simple">
-<li><p>For WiFi you need to reserve Serial 1 fo the connection to the ESP due to a limitation from the WiFiATEsp library. Otehrwise you could use SoftwareSerial (less recommended/feature has to be added)</p></li>
+<li><p>For WiFi you need to reserve Serial 1 for the connection to the ESP due to a limitation from the WiFiATEsp library. Otherwise you could use SoftwareSerial (less recommended/feature has to be added)</p></li>
 </ul>
 </div>
 <div class="admonition attention">
@@ -356,7 +357,7 @@ Once NetworkInterface is part of the CommandStation EX master this step has been
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="api/library_root.html" class="btn btn-neutral float-right" title="NetworkInterface API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="FlashESP.html" class="btn btn-neutral float-right" title="How to flash your ESP for the right AT commandset" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="Welcome to the CommandStation EX NetworkInterface documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

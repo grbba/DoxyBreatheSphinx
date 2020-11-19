@@ -33,10 +33,10 @@ Ethernet
 
 * Automatic detection of the EthernetShield capabilities and number of possible concurrent connections for TCP
 * UDP will have only one connection available as its a non-connected stateless protocol and all clients will use the same connection
-* Etheret and WiFi can be mixed if a EtherNet Shield and ESP are both connected to the MCU
+* Ethernet and WiFi can be mixed if a EtherNet Shield and ESP are both connected to the MCU
 
 The interface also supports multiple connections on different ports for TCP and UDP.
-You can also mix Ethernet and Wifi ( my setup has actually both connected currently )
+You can also mix Ethernet and WiFi ( my setup has actually both connected currently )
 WiThrottle over UDP should also support multiple clients as i know the remote IP and ports to reply to to the contrary of TCP as a connected protocol but that i can't test yet
 
 Diagnostics
@@ -49,15 +49,15 @@ Dependencies
 
 The WiFi connection makes use of the WiFiEspAT library from Juraj Andrássy which can be found here on `GitHub <https://github.com/jandrassy/WiFiEspAT>`_ .  
 
-.. note:: This library requires that the ESP, providing the WiFi hardware, supports an AT commandset version 1.7 or 2.1 as of today. All different ESP modules should be supported.
+.. note:: This library requires that the ESP, providing the WiFi hardware, supports the AT command set version 1.7 or 2.1 as of today. All different ESP modules should be supported.
 
-Unfortunatley most ESP modules shipped today come with an older AT commandset installed by default. Therfore flashing your ESP may be required. Plans exist to build
-our own ESP WiFi AT library also supporting older AT commandsets.
+Unfortunately most ESP modules shipped today come with an older AT command set installed by default. Therefore flashing your ESP may be required. Plans exist to build
+our own ESP WiFi AT library also supporting older AT command sets.
 This library is available from the PIO library manager as well as from the Arduino IDE library manager. Please refer to the platformio.ini file on how to use the library. 
-Using VSC together with PIO, instead of looking for the libary in PIO library manager, can just add the relevant file in your platformio.ini file and the compiler will 
+Using VSC together with PIO, instead of looking for the library in PIO library manager, can just add the relevant file in your platformio.ini file and the compiler will 
 find and download, if required, the library for you.
 
-Instructions for flashing your ESP can be found here: to be done
+Instructions for flashing your ESP can be found `here <FlashESP.html>`_
 
 CommandStation EX Integration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -80,8 +80,8 @@ In NetworkConfig.h : uncomment #define DCC_ENABLED; If that is commented out the
 Once NetworkInterface is part of the CommandStation EX master this step has been done already
 
 
-.. attention:: * Memory Consumption: Every network interface instatiated will consume valuable memory/processing time needed also by other parts of the CommandStation. It is recommended to instantiate at most 2. If you don't have enough memory for Accessiries, Sensors, Turnouts etc. please look if one network interface would be sufficient.
-.. attention:: * For WiFi you need to reserve Serial 1 fo the connection to the ESP due to a limitation from the WiFiATEsp library. Otehrwise you could use SoftwareSerial (less recommended/feature has to be added)
+.. attention:: * Memory Consumption: Every network interface instantiated will consume valuable memory/processing time needed also by other parts of the CommandStation. It is recommended to instantiate at most 2. If you don't have enough memory for Accessories, Sensors, Turnouts etc. please look if one network interface would be sufficient.
+.. attention:: * For WiFi you need to reserve Serial 1 for the connection to the ESP due to a limitation from the WiFiATEsp library. Otherwise you could use SoftwareSerial (less recommended/feature has to be added)
 .. attention:: * UNO is not supported due to ressource limitation. An Arduino Mega is required.
 .. attention:: * Individual commands send shall not be longer than half of the MAX_ETH_BUFFER size in order to make sure that no command which spans two recieved packets is lost. The default settings should be sufficient for most use cases.
 
