@@ -18,6 +18,7 @@ jobs:
     - name: Requirements
       run: brew install doxygen
         && brew install sphinx-doc
+        && brew install enchant
         && pip3 install sphinx-rtd-theme
         && pip3 install breathe
         && pip3 install exhale
