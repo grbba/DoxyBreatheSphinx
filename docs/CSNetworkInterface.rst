@@ -1,6 +1,12 @@
 The CommandStation EX NetworkInterface
 ======================================
 
+.. epigraph::
+
+   No matter where you go, there you are.
+
+   -- Buckaroo Banzai
+
 Summary
 -------
 
