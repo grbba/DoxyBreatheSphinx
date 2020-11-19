@@ -51,13 +51,13 @@ The WiFi connection makes use of the WiFiEspAT library from Juraj Andrássy whic
 
 .. note:: This library requires that the ESP, providing the WiFi hardware, supports the AT command set version 1.7 or 2.1 as of today. All different ESP modules should be supported.
 
-Unfortunatley most ESP modules shipped today come with an older AT command set installed by default. Therefore flashing your ESP may be required. Plans exist to build
+Unfortunately most ESP modules shipped today come with an older AT command set installed by default. Therefore flashing your ESP may be required. Plans exist to build
 our own ESP WiFi AT library also supporting older AT command sets.
 This library is available from the PIO library manager as well as from the Arduino IDE library manager. Please refer to the platformio.ini file on how to use the library. 
 Using VSC together with PIO, instead of looking for the library in PIO library manager, can just add the relevant file in your platformio.ini file and the compiler will 
 find and download, if required, the library for you.
 
-Instructions for flashing your ESP can be found here: to be done
+Instructions for flashing your ESP can be found `here <FlashESP.html>`_
 
 CommandStation EX Integration
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
